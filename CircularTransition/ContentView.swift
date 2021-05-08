@@ -58,8 +58,6 @@ struct SecondView: View {
                 .fill(Color.blue)
                 .matchedGeometryEffect(id: "background", in: animation)
                 .frame(width: calculateRadius(), height: calculateRadius())
-                .padding(.leading, 400)
-                .padding(.top, 400)
             
             Button(action: {
                 withAnimation {
@@ -75,7 +73,7 @@ struct SecondView: View {
     func calculateRadius() -> CGFloat {
         let sideOne = screen.width / 2
         let sideTwo = screen.height / 2
-        let aux = (sideOne * sideOne) + (sideTwo * sideTwo)
+        let aux = pow(sideOne, 2) + pow(sideTwo, 2)
         let radius = sqrt(aux)
         return radius * 2
     }
